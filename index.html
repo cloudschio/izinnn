@@ -17,6 +17,7 @@
       --line:#cbd5e1;
       --soft:#eff6ff;
       --soft2:#fff7ed;
+      --ok:#16a34a;
     }
     *{box-sizing:border-box}
     body{
@@ -30,7 +31,7 @@
       min-height:100vh;
       padding:24px;
     }
-    .wrap{max-width:920px;margin:0 auto}
+    .wrap{max-width:980px;margin:0 auto}
     .card{
       background:rgba(255,255,255,.96);
       border:1px solid rgba(37,99,235,.12);
@@ -91,7 +92,13 @@
       background:linear-gradient(135deg, rgba(37,99,235,.06), rgba(249,115,22,.07));
       border:1px solid rgba(37,99,235,.08);
     }
-    .hero-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px}
+    .hero-head{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
     .hero-right{
       min-width:180px;
       text-align:right;
@@ -112,7 +119,7 @@
       font-weight:800;
       color:#0f172a;
     }
-    .rules{
+    .box{
       background:#fff;
       border:1px solid #dbeafe;
       border-radius:18px;
@@ -126,6 +133,39 @@
       line-height:1.8;
     }
     .rules li{margin-bottom:6px}
+    .payment-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .payment-card{
+      background:linear-gradient(180deg, #ffffff, #f8fbff);
+      border:1px solid #dbeafe;
+      border-radius:16px;
+      padding:16px;
+    }
+    .payment-card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      color:#1e3a8a;
+    }
+    .payment-card p{
+      margin:0;
+      color:#475569;
+      font-size:14px;
+      line-height:1.7;
+    }
+    .badge-pay{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:#1d4ed8;
+      border:1px solid #bfdbfe;
+      font-size:12px;
+      font-weight:700;
+    }
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -209,7 +249,7 @@
       line-height:1.7;
     }
     @media (max-width:640px){
-      .grid{grid-template-columns:1fr}
+      .grid,.payment-grid{grid-template-columns:1fr}
       .card{padding:18px}
       h1{font-size:24px}
       .hero-right{text-align:left}
@@ -240,7 +280,7 @@
         </div>
       </div>
 
-      <div class="rules">
+      <div class="box rules">
         <div class="section-title">Peraturan Izin</div>
         <ul>
           <li>Pengajuan izin wajib diisi dengan data yang benar dan dapat dipertanggungjawabkan.</li>
@@ -251,7 +291,23 @@
         </ul>
       </div>
 
-      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="box">
+        <div class="section-title">Metode Pembayaran</div>
+        <div class="payment-grid">
+          <div class="payment-card">
+            <div class="badge-pay">Unit Tata Usaha</div>
+            <h3>Pembayaran Langsung</h3>
+            <p>Peserta dapat melakukan pembayaran langsung ke unit tata usaha sesuai jadwal layanan yang ditentukan oleh panitia atau administrasi PPI.</p>
+          </div>
+          <div class="payment-card">
+            <div class="badge-pay">Bank Transfer</div>
+            <h3>Pembayaran via Transfer</h3>
+            <p>Peserta dapat melakukan transfer ke rekening resmi PPI/instansi yang ditentukan. Pastikan nominal dan berita transfer sesuai ketentuan.</p>
+          </div>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
         <div class="grid">
           <div>
             <label for="nama">Nama Lengkap</label>
@@ -301,8 +357,8 @@
           </div>
 
           <div class="full">
-            <label for="lampiran">Link / Keterangan Lampiran</label>
-            <input type="text" id="lampiran" name="lampiran" placeholder="Opsional, misalnya link surat keterangan" />
+            <label for="lampiran">Form Upload Bukti Pembayaran</label>
+            <input type="file" id="lampiran" name="bukti_pembayaran" accept="image/png, image/jpeg, application/pdf" />
           </div>
 
           <div class="full">
@@ -316,11 +372,11 @@
           <button type="reset" class="secondary">Reset Form</button>
         </div>
 
-        <p class="note">Ganti `YOUR_FORMSPREE_ID` dengan endpoint asli dari Formspree sebelum dipasang di GitHub Pages. [web:41][web:38]</p>
+        <p class="note">File bukti pembayaran dikirim bersama form karena form sudah memakai `enctype="multipart/form-data"`. [web:58][web:60]</p>
       </form>
 
       <div class="foot">
-        Dibuat untuk mendukung pengajuan izin peserta pendidikan dan pelatihan secara online melalui GitHub Pages, yang cocok untuk website statis. [web:35][web:37]
+        Dibuat untuk mendukung pengajuan izin peserta pendidikan dan pelatihan secara online melalui GitHub Pages, yang cocok untuk website statis. [web:35][web:65]
       </div>
     </div>
   </div>
