@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Persetujuan Orang Tua - PPI Madiun</title>
+  <style>
+    :root{
+      --bg:#f8fafc; --card:#ffffff; --muted:#475569; --text:#0f172a;
+      --primary:#2563eb; --primary2:#1d4ed8; --accent:#f97316; --line:#cbd5e1;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#eff6ff 0%, #ffffff 100%);
+      color:var(--text); min-height:100vh; padding:24px;
+    }
+    .wrap{max-width:900px;margin:0 auto}
+    .card{
+      background:rgba(255,255,255,.96); border:1px solid rgba(37,99,235,.12);
+      border-radius:24px; padding:30px; box-shadow:0 18px 45px rgba(15,23,42,.10);
+    }
+    .brand{font-size:13px;font-weight:800;letter-spacing:1px;color:#1d4ed8}
+    h1{margin:10px 0 8px;font-size:30px;line-height:1.2}
+    p{margin:0 0 16px;color:var(--muted);line-height:1.7}
+    .box{
+      border:1px solid #dbeafe; border-radius:18px; padding:18px; background:#fff;
+      margin:18px 0;
+    }
+    .section-title{margin:0 0 12px;font-size:18px;font-weight:800}
+    ul{margin:0;padding-left:18px;line-height:1.8;color:#334155}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    a.btn, button{
+      display:inline-block; border:0; border-radius:12px; padding:12px 18px;
+      font-weight:700; cursor:pointer; text-decoration:none;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary2)); color:#fff;
+    }
+    .btn-outline{
+      background:#fff; color:#1d4ed8; border:1px solid #bfdbfe;
+    }
+    .sign{
+      margin-top:20px; display:grid; gap:14px; grid-template-columns:1fr 1fr;
+    }
+    label{display:block;margin:0 0 8px;font-size:14px;font-weight:600;color:#334155}
+    input, textarea{
+      width:100%; border:1px solid var(--line); border-radius:12px; padding:12px 14px;
+      font-size:15px; outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    @media (max-width:640px){.sign{grid-template-columns:1fr} .card{padding:20px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="brand">PERIZINAN PPI MADIUN</div>
+      <h1>Persetujuan Orang Tua / Wali</h1>
+      <p>Halaman ini digunakan untuk menyatakan bahwa orang tua atau wali mengetahui dan menyetujui pengajuan izin peserta pendidikan dan pelatihan.</p>
+
+      <div class="box">
+        <div class="section-title">Pernyataan Persetujuan</div>
+        <ul>
+          <li>Saya selaku orang tua/wali mengetahui pengajuan izin peserta.</li>
+          <li>Saya menyetujui data yang diisikan pada formulir izin.</li>
+          <li>Saya memahami bahwa pengajuan izin harus mengikuti peraturan PPI Madiun.</li>
+          <li>Apabila terdapat perubahan keadaan, saya bersedia menghubungi panitia/admin.</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <div class="section-title">Identitas Orang Tua / Wali</div>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <div class="sign">
+            <div>
+              <label for="nama_wali">Nama Orang Tua / Wali</label>
+              <input type="text" id="nama_wali" name="nama_wali" required>
+            </div>
+            <div>
+              <label for="hubungan">Hubungan</label>
+              <input type="text" id="hubungan" name="hubungan" placeholder="Ayah / Ibu / Wali" required>
+            </div>
+            <div>
+              <label for="kontak_wali">No. Kontak</label>
+              <input type="tel" id="kontak_wali" name="kontak_wali" required>
+            </div>
+            <div>
+              <label for="nama_peserta">Nama Peserta</label>
+              <input type="text" id="nama_peserta" name="nama_peserta" required>
+            </div>
+            <div style="grid-column:1/-1">
+              <label for="persetujuan">Pernyataan Persetujuan</label>
+              <textarea id="persetujuan" name="persetujuan" required>Saya menyetujui pengajuan izin peserta pendidikan dan pelatihan yang diajukan.</textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn-primary">Kirim Persetujuan</button>
+            <a href="index.html" class="btn-outline">Kembali ke Form Izin</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
